@@ -31,7 +31,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     window.open = cordova.InAppBrowser.open(url, target, options);
-    setTimeout(showBrowser, 3000);
+    setTimeout(showBrowser, 5000);
 }
 
 function showBrowser() {
