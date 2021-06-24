@@ -23,19 +23,34 @@
 // function onDeviceReady() {
     
 // }
+let target = "_blank";
+let url = "http://site.com";
+let options = "location=yes,hidden=yes";
+let inAppBrowserRef;
+document.addEventListener('deviceready', onDeviceReady, false);
+
+function onDeviceReady() {
+    window.open = cordova.InAppBrowser.open(url, target, options);
+    setTimeout(showBrowser, 3000);
+}
+
+function showBrowser() {
+    window.open.show()
+}
 
 var app = {
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
-
+    
     // deviceready Event Handler
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        window.open = cordova.InAppBrowser.open("https://www.salesforce.com/");
+        
+        // 
     },
 
     // Update DOM on a Received Event
